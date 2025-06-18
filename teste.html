@@ -394,10 +394,6 @@
                 <div class="gradient-border-content p-8">
                     <h2 class="text-2xl font-semibold mb-6 gradient-text section-title">Parâmetros de Cálculo</h2>
                     
-                    <div class="formula-box mb-6">
-                        <p class="text-sm text-gray-300 mb-2">Fórmula utilizada para cálculo do valor líquido:</p>
-                        <p class="formula-text">Valor Líquido = Valor Bruto × ((1 - ICMS) × (1 - PIS))</p>
-                    </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                         <div>
@@ -758,7 +754,7 @@
                             </svg>
                             Observações
                         </h3>
-                        <p class="text-sm leading-relaxed">Este simulador considera a fórmula exata: Valor Líquido = Valor Bruto × ((1 - ICMS) × (1 - PIS)), conforme solicitado.</p>
+                        <p class="text-sm leading-relaxed">Este simulador utiliza a fórmula exata: Valor Líquido = Valor Bruto × ((1 - alíquota de ICMS) × (1 - alíquota de PIS)).</p>
                     </div>
                 </div>
             </div>
@@ -799,7 +795,7 @@
             document.getElementById('totalImpostosAtual').textContent = formatCurrency(pisAtual * 100 + cofinsAtual * 100 + icmsAtual * 100 + ipiAtual * 100);
             document.getElementById('totalImpostosReforma').textContent = formatCurrency(cbsNovo * 100 + ibsNovo * 100 + isNovo * 100);
             
-            // Aplicar a fórmula exata: Valor Líquido = Valor Bruto * ((1 - ICMS) * (1 - PIS))
+            // Aplicar a fórmula exata: Valor Líquido = Valor Bruto * ((1 - alíquota de ICMS) * (1 - alíquota de PIS))
             const valorLiquidoAtual = valorBruto * ((1 - icmsAtual) * (1 - pisAtual));
             
             // Atualizar o campo de valor líquido
@@ -813,7 +809,8 @@
             
             // Cálculos reforma tributária
             const valorLiquidoReforma = valorLiquidoAtual; // Mantém o mesmo valor líquido para comparação
-            const valorCbs = valorLiquidoReforma * cbsNovo / (1 - cbsNovo);
+            // Valor do CBS na reforma: valor líquido multiplicado pela alíquota de CBS
+            const valorCbs = valorLiquidoReforma * cbsNovo;
             const valorIbs = valorLiquidoReforma * ibsNovo / (1 - ibsNovo);
             const valorIs = valorLiquidoReforma * isNovo;
             const valorTotalReforma = valorLiquidoReforma + valorCbs + valorIbs + valorIs;
