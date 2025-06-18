@@ -755,7 +755,7 @@
                             Observações
                         </h3>
                         <p class="text-sm leading-relaxed">Este simulador utiliza a fórmula exata: Valor Líquido = Valor Bruto × ((1 - alíquota de ICMS) × (1 - alíquota de PIS)).</p>
-                        <p class="text-sm leading-relaxed mt-2">Na reforma, CBS = Valor Líquido × alíquota de CBS e IBS = Valor Líquido × alíquota de IBS.</p>
+
                     </div>
                 </div>
             </div>
@@ -812,8 +812,10 @@
             const valorLiquidoReforma = valorLiquidoAtual; // Mantém o mesmo valor líquido para comparação
             // Valor do CBS na reforma: valor líquido multiplicado pela alíquota de CBS
             const valorCbs = valorLiquidoReforma * cbsNovo;
+
             // Valor do IBS na reforma: valor líquido multiplicado pela alíquota de IBS
             const valorIbs = valorLiquidoReforma * ibsNovo;
+
             const valorIs = valorLiquidoReforma * isNovo;
             const valorTotalReforma = valorLiquidoReforma + valorCbs + valorIbs + valorIs;
             
