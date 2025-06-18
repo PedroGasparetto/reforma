@@ -747,6 +747,7 @@
                         <p class="text-sm leading-relaxed">Conforme a LC 214/2025, o IBS e CBS não integram a base de cálculo do IPI e do ICMS, assim como o ICMS não integra a base de cálculo do PIS e COFINS (tese do século).</p>
                     </div>
                     
+
                 </div>
             </div>
         </div>
@@ -802,8 +803,13 @@
             const valorLiquidoReforma = valorLiquidoAtual; // Mantém o mesmo valor líquido para comparação
             // Valor do CBS na reforma: valor líquido multiplicado pela alíquota de CBS
             const valorCbs = valorLiquidoReforma * cbsNovo;
+
+
+
             // Valor do IBS na reforma: valor líquido multiplicado pela alíquota de IBS
             const valorIbs = valorLiquidoReforma * ibsNovo;
+
+
             const valorIs = valorLiquidoReforma * isNovo;
             const valorTotalReforma = valorLiquidoReforma + valorCbs + valorIbs + valorIs;
             
