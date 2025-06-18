@@ -394,10 +394,6 @@
                 <div class="gradient-border-content p-8">
                     <h2 class="text-2xl font-semibold mb-6 gradient-text section-title">Parâmetros de Cálculo</h2>
                     
-                    <div class="formula-box mb-6">
-                        <p class="text-sm text-gray-300 mb-2">Fórmula utilizada para cálculo do valor líquido:</p>
-                        <p class="formula-text">Valor Líquido = Valor Bruto × ((1 - ICMS) × (1 - PIS))</p>
-                    </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                         <div>
@@ -415,7 +411,7 @@
                             </label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-300 font-medium">R$</span>
-                                <input type="number" id="valorBruto" class="editable-field pl-12" value="53891.58">
+                                <input type="number" id="valorBruto" class="editable-field pl-12">
                             </div>
                         </div>
                         
@@ -434,7 +430,7 @@
                             </label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-300 font-medium">R$</span>
-                                <input type="number" id="valorLiquido" class="editable-field pl-12" value="52985.87" readonly>
+                                <input type="number" id="valorLiquido" class="editable-field pl-12" readonly>
                             </div>
                         </div>
                     </div>
@@ -458,7 +454,7 @@
                                             <span class="tooltip-text">Programa de Integração Social</span>
                                         </div>
                                     </label>
-                                    <input type="number" id="pisAtual" class="editable-field" value="1.65" step="0.01">
+                                    <input type="number" id="pisAtual" class="editable-field" step="0.01">
                                 </div>
                                 <div>
                                     <label class="block text-gray-300 mb-2 flex items-center text-sm">
@@ -470,7 +466,7 @@
                                             <span class="tooltip-text">Contribuição para o Financiamento da Seguridade Social</span>
                                         </div>
                                     </label>
-                                    <input type="number" id="cofinsAtual" class="editable-field" value="7.6" step="0.01">
+                                    <input type="number" id="cofinsAtual" class="editable-field" step="0.01">
                                 </div>
                                 <div>
                                     <label class="block text-gray-300 mb-2 flex items-center text-sm">
@@ -482,7 +478,7 @@
                                             <span class="tooltip-text">Imposto sobre Circulação de Mercadorias e Serviços</span>
                                         </div>
                                     </label>
-                                    <input type="number" id="icmsAtual" class="editable-field" value="0" step="0.01">
+                                    <input type="number" id="icmsAtual" class="editable-field" step="0.01">
                                 </div>
                                 <div>
                                     <label class="block text-gray-300 mb-2 flex items-center text-sm">
@@ -494,12 +490,12 @@
                                             <span class="tooltip-text">Imposto sobre Produtos Industrializados</span>
                                         </div>
                                     </label>
-                                    <input type="number" id="ipiAtual" class="editable-field" value="0" step="0.01">
+                                    <input type="number" id="ipiAtual" class="editable-field" step="0.01">
                                 </div>
                             </div>
                             <div class="mt-4 flex flex-wrap">
                                 <div class="tax-badge">
-                                    <span class="tax-badge-icon">∑</span> Total: <span id="totalImpostosAtual">9,25</span>%
+                                      <span class="tax-badge-icon">∑</span> Total: <span id="totalImpostosAtual"></span>%
                                 </div>
                             </div>
                         </div>
@@ -522,7 +518,7 @@
                                             <span class="tooltip-text">Contribuição sobre Bens e Serviços (substitui PIS/COFINS)</span>
                                         </div>
                                     </label>
-                                    <input type="number" id="cbsNovo" class="editable-field" value="9.0" step="0.01">
+                                    <input type="number" id="cbsNovo" class="editable-field" step="0.01">
                                 </div>
                                 <div>
                                     <label class="block text-gray-300 mb-2 flex items-center text-sm">
@@ -534,7 +530,7 @@
                                             <span class="tooltip-text">Imposto sobre Bens e Serviços (substitui ICMS/ISS)</span>
                                         </div>
                                     </label>
-                                    <input type="number" id="ibsNovo" class="editable-field" value="19.0" step="0.01">
+                                    <input type="number" id="ibsNovo" class="editable-field" step="0.01">
                                 </div>
                                 <div>
                                     <label class="block text-gray-300 mb-2 flex items-center text-sm">
@@ -546,12 +542,12 @@
                                             <span class="tooltip-text">Imposto Seletivo (substitui IPI)</span>
                                         </div>
                                     </label>
-                                    <input type="number" id="isNovo" class="editable-field" value="0" step="0.01">
+                                    <input type="number" id="isNovo" class="editable-field" step="0.01">
                                 </div>
                             </div>
                             <div class="mt-4 flex flex-wrap">
                                 <div class="tax-badge">
-                                    <span class="tax-badge-icon">∑</span> Total: <span id="totalImpostosReforma">28,00</span>%
+                                      <span class="tax-badge-icon">∑</span> Total: <span id="totalImpostosReforma"></span>%
                                 </div>
                             </div>
                         </div>
@@ -579,7 +575,7 @@
                             </svg>
                             Regime Atual
                         </h3>
-                        <p class="text-3xl font-bold">R$ <span id="valorTotalAtual">53.891,58</span></p>
+                          <p class="text-3xl font-bold">R$ <span id="valorTotalAtual"></span></p>
                     </div>
                     
                     <div class="text-center">
@@ -595,19 +591,19 @@
                             </svg>
                             Reforma Tributária
                         </h3>
-                        <p class="text-3xl font-bold">R$ <span id="valorTotalReforma">67.843,03</span></p>
+                          <p class="text-3xl font-bold">R$ <span id="valorTotalReforma"></span></p>
                     </div>
                     
                     <div class="pt-6 border-t border-indigo-900/30">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <h3 class="text-lg font-medium text-gray-300 mb-2">Diferença</h3>
-                                <p class="text-2xl font-bold">R$ <span id="valorDiferenca" class="negative-highlight">13.951,45</span></p>
+                                  <p class="text-2xl font-bold">R$ <span id="valorDiferenca" class="negative-highlight"></span></p>
                             </div>
                             
                             <div>
                                 <h3 class="text-lg font-medium text-gray-300 mb-2">Variação</h3>
-                                <p class="text-2xl font-bold"><span id="valorVariacao" class="negative-highlight">25,89</span>%</p>
+                                  <p class="text-2xl font-bold"><span id="valorVariacao" class="negative-highlight"></span>%</p>
                             </div>
                         </div>
                     </div>
@@ -637,8 +633,8 @@
                                         </svg>
                                         Valor Líquido
                                     </td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="valorLiquidoAtual">52.985,87</span></td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="valorLiquidoReforma">52.985,87</span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="valorLiquidoAtual"></span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="valorLiquidoReforma"></span></td>
                                 </tr>
                                 <tr class="table-row">
                                     <td class="py-4 px-6 flex items-center">
@@ -647,8 +643,8 @@
                                         </svg>
                                         PIS/COFINS ou CBS
                                     </td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="valorPisCofinsAtual">4.984,97</span></td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="valorCbsReforma">4.770,21</span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="valorPisCofinsAtual"></span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="valorCbsReforma"></span></td>
                                 </tr>
                                 <tr class="table-row">
                                     <td class="py-4 px-6 flex items-center">
@@ -657,8 +653,8 @@
                                         </svg>
                                         ICMS ou IBS
                                     </td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="valorIcmsAtual">0,00</span></td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="valorIbsReforma">10.070,45</span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="valorIcmsAtual"></span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="valorIbsReforma"></span></td>
                                 </tr>
                                 <tr class="table-row">
                                     <td class="py-4 px-6 flex items-center">
@@ -667,8 +663,8 @@
                                         </svg>
                                         IPI ou IS
                                     </td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="valorIpiAtual">0,00</span></td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="valorIsReforma">0,00</span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="valorIpiAtual"></span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="valorIsReforma"></span></td>
                                 </tr>
                                 <tr class="table-row font-semibold bg-opacity-30 bg-indigo-900">
                                     <td class="py-4 px-6 flex items-center">
@@ -677,8 +673,8 @@
                                         </svg>
                                         Valor Total
                                     </td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="totalAtualTabela">53.891,58</span></td>
-                                    <td class="py-4 px-6 text-right">R$ <span id="totalReformaTabela">67.843,03</span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="totalAtualTabela"></span></td>
+                                      <td class="py-4 px-6 text-right">R$ <span id="totalReformaTabela"></span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -758,7 +754,7 @@
                             </svg>
                             Observações
                         </h3>
-                        <p class="text-sm leading-relaxed">Este simulador considera a fórmula exata: Valor Líquido = Valor Bruto × ((1 - ICMS) × (1 - PIS)), conforme solicitado.</p>
+                        <p class="text-sm leading-relaxed">Este simulador utiliza a fórmula exata: Valor Líquido = Valor Bruto × ((1 - alíquota de ICMS) × (1 - alíquota de PIS)).</p>
                     </div>
                 </div>
             </div>
@@ -799,7 +795,7 @@
             document.getElementById('totalImpostosAtual').textContent = formatCurrency(pisAtual * 100 + cofinsAtual * 100 + icmsAtual * 100 + ipiAtual * 100);
             document.getElementById('totalImpostosReforma').textContent = formatCurrency(cbsNovo * 100 + ibsNovo * 100 + isNovo * 100);
             
-            // Aplicar a fórmula exata: Valor Líquido = Valor Bruto * ((1 - ICMS) * (1 - PIS))
+            // Aplicar a fórmula exata: Valor Líquido = Valor Bruto * ((1 - alíquota de ICMS) * (1 - alíquota de PIS))
             const valorLiquidoAtual = valorBruto * ((1 - icmsAtual) * (1 - pisAtual));
             
             // Atualizar o campo de valor líquido
@@ -813,8 +809,10 @@
             
             // Cálculos reforma tributária
             const valorLiquidoReforma = valorLiquidoAtual; // Mantém o mesmo valor líquido para comparação
-            const valorCbs = valorLiquidoReforma * cbsNovo / (1 - cbsNovo);
-            const valorIbs = valorLiquidoReforma * ibsNovo / (1 - ibsNovo);
+            // Valor do CBS na reforma: valor líquido multiplicado pela alíquota de CBS
+            const valorCbs = valorLiquidoReforma * cbsNovo;
+            // Valor do IBS na reforma: valor líquido multiplicado pela alíquota de IBS
+            const valorIbs = valorLiquidoReforma * ibsNovo;
             const valorIs = valorLiquidoReforma * isNovo;
             const valorTotalReforma = valorLiquidoReforma + valorCbs + valorIbs + valorIs;
             
@@ -1177,10 +1175,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Configurar o botão de cálculo
             document.getElementById('calcularBtn').addEventListener('click', calcularValores);
-            
-            // Calcular valores iniciais
-            calcularValores();
-            
             // Configurar inputs para recalcular ao perder o foco
             const inputs = document.querySelectorAll('input');
             inputs.forEach(input => {
