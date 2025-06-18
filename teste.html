@@ -754,7 +754,7 @@
                             </svg>
                             Observações
                         </h3>
-                        <p class="text-sm leading-relaxed">Este simulador considera a fórmula exata: Valor Líquido = Valor Bruto × ((1 - ICMS) × (1 - PIS)), conforme solicitado.</p>
+                        <p class="text-sm leading-relaxed">Este simulador utiliza a fórmula exata: Valor Líquido = Valor Bruto × ((1 - alíquota de ICMS) × (1 - alíquota de PIS)).</p>
                     </div>
                 </div>
             </div>
@@ -795,7 +795,7 @@
             document.getElementById('totalImpostosAtual').textContent = formatCurrency(pisAtual * 100 + cofinsAtual * 100 + icmsAtual * 100 + ipiAtual * 100);
             document.getElementById('totalImpostosReforma').textContent = formatCurrency(cbsNovo * 100 + ibsNovo * 100 + isNovo * 100);
             
-            // Aplicar a fórmula exata: Valor Líquido = Valor Bruto * ((1 - ICMS) * (1 - PIS))
+            // Aplicar a fórmula exata: Valor Líquido = Valor Bruto * ((1 - alíquota de ICMS) * (1 - alíquota de PIS))
             const valorLiquidoAtual = valorBruto * ((1 - icmsAtual) * (1 - pisAtual));
             
             // Atualizar o campo de valor líquido
