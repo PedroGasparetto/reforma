@@ -411,7 +411,7 @@
                             </label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-300 font-medium">R$</span>
-                                <input type="number" id="valorBruto" class="editable-field pl-12">
+                                <input type="text" id="valorBruto" class="editable-field pl-12" inputmode="decimal">
                             </div>
                         </div>
                         
@@ -761,16 +761,27 @@
     <script>
         // Formatação de números para moeda brasileira
         function formatCurrency(value) {
-            return new Intl.NumberFormat('pt-BR', { 
-                minimumFractionDigits: 2, 
-                maximumFractionDigits: 2 
+            return new Intl.NumberFormat('pt-BR', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
             }).format(value);
+        }
+
+        // Formatar entrada de texto como moeda brasileira
+        function formatCurrencyInput(value) {
+            const cleaned = value.replace(/\D/g, '');
+            const number = parseFloat(cleaned) / 100 || 0;
+            return number.toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
         }
         
         // Função para calcular os valores
         function calcularValores() {
             // Obter valores dos inputs
-            const valorBruto = parseFloat(document.getElementById('valorBruto').value) || 0;
+            const valorBrutoStr = document.getElementById('valorBruto').value;
+            const valorBruto = parseFloat(valorBrutoStr.replace(/\./g, '').replace(',', '.')) || 0;
             
             // Alíquotas regime atual
             const pisAtual = parseFloat(document.getElementById('pisAtual').value) / 100 || 0;
@@ -1184,6 +1195,14 @@
                     });
                 }
             });
+
+            // Aplicar máscara de moeda ao valor bruto
+            const valorBrutoInput = document.getElementById('valorBruto');
+            valorBrutoInput.addEventListener('input', function(e) {
+                e.target.value = formatCurrencyInput(e.target.value);
+            });
+            // Formatar valor inicial, se houver
+            valorBrutoInput.value = formatCurrencyInput(valorBrutoInput.value);
             
             // Adicionar efeito de hover nos cards de valor
             const valueCards = document.querySelectorAll('.value-card');
